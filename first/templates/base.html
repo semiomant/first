@@ -16,7 +16,8 @@
             .container {
                 width: 940px;
                 margin: 0 auto;
-                background-color: red; 
+                background-color: red;
+                border: 5px solid;
             }
             .content {
                 float: left;
@@ -32,12 +33,12 @@
     <body>
         {% cms_toolbar %}
         <div class="container">
+        Menu
             <ul class="nav">
                 {% show_menu 0 100 100 100 %}
             </ul>
-            {% block content %}{% endblock content %}
         </div>
-        <div class="container">hehehe</div>
+        <div class="container">{% block content %}{% endblock content %}</div>
         {% render_block "js" %}
     </body>
 </html>
