@@ -121,6 +121,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 INSTALLED_APPS = (
+    'api',
     'djangocms_admin_style',
     'django.contrib.auth',
     'django.contrib.contenttypes',

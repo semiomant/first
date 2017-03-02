@@ -9,6 +9,7 @@ from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.static import serve
+from . import views
 
 admin.autodiscover()
 
@@ -17,10 +18,18 @@ urlpatterns = [
         {'sitemaps': {'cmspages': CMSSitemap}}),
 ]
 
+## this evilly forces /de/ onto the url, so it needs to be last
+
 urlpatterns += i18n_patterns(
     url(r'^admin/', include(admin.site.urls)),  # NOQA
     url(r'^', include('cms.urls')),
 )
+
+# a brute force addition, but CMS fucks with the basic structure of django
+
+urlpatterns = [
+    url(r'^api/clock/now', views.index, name='index')
+] + urlpatterns
 
 # This is only needed when using runserver.
 if settings.DEBUG:
