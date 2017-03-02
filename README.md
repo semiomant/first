@@ -1,6 +1,4 @@
 #Aufgaben zu Django CMS
 
-blah
-blah
-blah
-lorem ipsum
+Runs in a __virtualenv__ with python 3.5.3 istalled with *pyenv*.
+
