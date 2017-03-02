@@ -40,7 +40,6 @@ ALLOWED_HOSTS = []
 ROOT_URLCONF = 'first.urls'
 
 
-
 WSGI_APPLICATION = 'first.wsgi.application'
 
 
