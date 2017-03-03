@@ -4,31 +4,10 @@
     <head>
         <title>{% block title %}This is my new project home page{% endblock title %}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <style type="text/css">
-            .nav {
-                padding-left: 0;
-            }
-            .nav li {
-                display: inline;
-                list-style-type: none;
-                padding-right: 20px;
-            }
-            .container {
-                width: 940px;
-                margin: 0 auto;
-                background-color: red;
-                border: 5px solid;
-            }
-            .content {
-                float: left;
-                width: 80%;
-            }
-            .sidebar {
-                float: left;
-                width: 20%;
-            }
-        </style>
         {% render_block "css" %}
+        <!-- base cms styles first to overwrite with custom -->
+        <link rel="stylesheet" type="text/css" href="/media/base.css">
+        {% render_block "file_js" %}
     </head>
     <body>
         {% cms_toolbar %}
@@ -39,6 +18,8 @@
             </ul>
         </div>
         <div class="container">{% block content %}{% endblock content %}</div>
+        <!-- JS at the and of the page ... by god who does that anymore o_0
+        window.onload() is not hard =/ -->
         {% render_block "js" %}
     </body>
 </html>

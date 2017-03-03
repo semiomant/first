@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+#stackoverflow awnser can grow olde
 import json
 
 # Create your views here.
@@ -19,6 +20,6 @@ def index(request):
         data = json.dumps(output)
         return HttpResponse(data, content_type='application/json')
     else:
-        str = "Time: {now.hour}:{now.minute} Date: {now.day}.{now.month}".format(**vars())
-        context = {'output': str }
+        string = "Time: {now.hour}:{now.minute} Date: {now.day}.{now.month}".format(**vars())
+        context = {'output': string }
         return render(request, 'mytmpl2.html', context)
