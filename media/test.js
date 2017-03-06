@@ -1,6 +1,13 @@
 // a helper mapping HTMLcollection onto iterable
 function converter(htmlCollection) { return [].slice.call(htmlCollection);}
 
+//helper leading 0
+function pad(num, size) {
+    var s = "00" + num;
+    return s.substr(s.length-size);
+}
+
+// helpers for setting the the timer
 function getConfig() {
     raw = document.getElementsByClassName('timerdata').item(0).innerText;
     obj = JSON.parse(raw);
@@ -22,7 +29,8 @@ function putData(response) {
     elements = ['hour', 'minute', 'second'].forEach(function(name) {
         //closure
         iterFn = function (elem,i) {
-            elem.innerText = response[name];
+            padded = pad(response[name],2)
+            elem.innerText = padded;
         }
 
         converter(document.getElementsByClassName(name)).forEach(iterFn);
@@ -45,3 +53,4 @@ window.onload =  function run() {
     timerConfig.timerId = setInterval(askForTime,timerConfig.interval*1000);
 }
 
+// re-learn no global names tricks like OO or IIFE
