@@ -84,7 +84,7 @@ function load(url, options) {
 /**
  * XMLHttpRequest to Promise wrapper, with JSON functionality built in.
  */
-console.log('running');
+
 var ajaxPromises = {
 
     /**

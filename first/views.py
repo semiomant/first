@@ -15,7 +15,7 @@ def index(request):
         output = {
         'hour': now.hour,
         'minute': now.minute,
-        'day':now.day
+        'second':now.second
         }
         data = json.dumps(output)
         return HttpResponse(data, content_type='application/json')

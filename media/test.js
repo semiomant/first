@@ -19,14 +19,18 @@ function setColor() {
 function putData(response) {
     response = JSON.parse(response);
 
-    iterFn = function (elem,i) {
-        elem.innerText = response.minute;
-    }
+    elements = ['hour', 'minute', 'second'].forEach(function(name) {
+        //closure
+        iterFn = function (elem,i) {
+            elem.innerText = response[name];
+        }
 
-    converter(document.getElementsByClassName('minute')).forEach(iterFn);
+        converter(document.getElementsByClassName(name)).forEach(iterFn);
+    })
+ 
 }
 
-// a loaded lib from github gives the gloavl shortcut ap for ajaxPromises
+// a loaded lib from github gives the global shortcut ap for ajaxPromises
 function askForTime() {
   ap.get(timerConfig.restUrl).then(putData);
 }
