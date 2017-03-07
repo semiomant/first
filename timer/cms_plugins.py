@@ -12,9 +12,10 @@ class TimerPlugin(CMSPluginBase):
     render_template = "timer/timer.html"
     cache = False
 
-    fieldsets = [
-        (None,{"fields" : ["rest_url", "background", "interval"]})
-    ]
+    # not needed
+    # fieldsets = [
+    #     (None,{"fields" : ["rest_url", "background", "interval"]})
+    # ]
 
     def render(self, context, instance, placeholder):
         #now = datetime.now()

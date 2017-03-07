@@ -16,17 +16,15 @@ function getConfig() {
 }
 
 function setColor() {
-    if (timerConfig.bkgCol != "beige") {
-        elem = document.getElementsByClassName('timer')[0];
-        elem.style.backgroundColor = timerConfig.bkgCol;
-    }
+    elem = document.getElementsByClassName('timer')[0];
+    elem.style.backgroundColor = timerConfig.bkgCol;
 }
 
 //isolate callback into funtion for promise (see below)
 function putData(response) {
     response = JSON.parse(response);
 
-    elements = ['hour', 'minute', 'second'].forEach(function(name) {
+    ['hour', 'minute', 'second'].forEach(function(name) {
         //closure
         iterFn = function (elem,i) {
             padded = pad(response[name],2)
