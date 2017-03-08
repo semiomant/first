@@ -1,14 +1,15 @@
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-from cms.models.pluginmodel import CMSPlugin
-from django.utils.translation import ugettext_lazy as _
+# from cms.models.pluginmodel import CMSPlugin
+# from django.utils.translation import ugettext_lazy as _
 
 from datetime import datetime
 from .models import TimerData
 
+
 class TimerPlugin(CMSPluginBase):
     model = TimerData
-    name  = "timer" 
+    name = 'timer'
     render_template = "timer/timer.html"
     cache = False
 
@@ -18,8 +19,9 @@ class TimerPlugin(CMSPluginBase):
     # ]
 
     def render(self, context, instance, placeholder):
-        #now = datetime.now()
+        # now = datetime.now()
         context.update({'now': datetime.now(), 'data': instance})
         return context
+
 
 plugin_pool.register_plugin(TimerPlugin)
